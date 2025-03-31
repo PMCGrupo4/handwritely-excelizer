@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { FileSpreadsheet } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-gray-50 pt-16 pb-12 relative overflow-hidden">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
@@ -82,17 +85,17 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} HandSheet. All rights reserved.
+              © {new Date().getFullYear()} HandSheet. {t('footer.allRightsReserved')}
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Privacy Policy
+                {t('footer.privacyPolicy')}
               </a>
               <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Terms of Service
+                {t('footer.termsOfService')}
               </a>
               <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Cookie Policy
+                {t('footer.cookiePolicy')}
               </a>
             </div>
           </div>
