@@ -4,9 +4,12 @@ import { FileSpreadsheet, LogIn } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { redirectToDemoApp, redirectToSignIn } from '@/utils/navigation';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,17 +35,18 @@ const NavBar = () => {
 
         <div className="hidden md:flex items-center space-x-8">
           <a href="#features" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-            Features
+            {t('nav.features')}
           </a>
           <a href="#process" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-            How It Works
+            {t('nav.howItWorks')}
           </a>
           <a href="#pricing" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-            Pricing
+            {t('nav.pricing')}
           </a>
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
+          <LanguageSwitcher />
           <Button 
             variant="outline" 
             size="sm"
@@ -50,21 +54,24 @@ const NavBar = () => {
             className="flex items-center gap-2"
           >
             <LogIn className="h-4 w-4" />
-            Sign In
+            {t('nav.signIn')}
           </Button>
           <Button 
             onClick={redirectToDemoApp}
             className="h-10 px-5 py-2 bg-primary text-white rounded-full text-sm font-medium transition-all hover:bg-primary/90 active:scale-95"
           >
-            Try for Free
+            {t('nav.tryForFree')}
           </Button>
         </div>
         
-        <button className="md:hidden text-foreground">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        </button>
+        <div className="md:hidden flex items-center space-x-2">
+          <LanguageSwitcher />
+          <button className="text-foreground">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
       </div>
     </nav>
   );
