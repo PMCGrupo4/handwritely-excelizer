@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 
 type Language = 'en' | 'es';
@@ -34,6 +33,11 @@ const enTranslations: Record<string, string> = {
   'auth.confirmPassword': 'Confirm Password',
   'auth.alreadyHaveAccount': 'Already have an account?',
   'auth.back': 'Back',
+  'auth.signInWithGoogle': 'Sign in with Google',
+  'auth.signInWithFacebook': 'Sign in with Facebook',
+  'auth.orSignInWith': 'Or sign in with',
+  'auth.orSignUpWith': 'Or sign up with',
+  'auth.socialText': 'You can also use your social accounts to get started',
   
   // Footer
   'footer.allRightsReserved': 'All rights reserved.',
@@ -154,6 +158,11 @@ const esTranslations: Record<string, string> = {
   'auth.confirmPassword': 'Confirmar Contraseña',
   'auth.alreadyHaveAccount': '¿Ya tienes una cuenta?',
   'auth.back': 'Volver',
+  'auth.signInWithGoogle': 'Inicia sesión con Google',
+  'auth.signInWithFacebook': 'Inicia sesión con Facebook',
+  'auth.orSignInWith': 'O inicia sesión con',
+  'auth.orSignUpWith': 'O regístrate con',
+  'auth.socialText': 'También puedes usar tus cuentas sociales para iniciar sesión',
   
   // Footer
   'footer.allRightsReserved': 'Todos los derechos reservados.',
