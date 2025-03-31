@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { FileSpreadsheet } from 'lucide-react';
+import { FileSpreadsheet, LogIn } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { redirectToDemoApp } from '@/utils/navigation';
+import { redirectToDemoApp, redirectToSignIn } from '@/utils/navigation';
 import { Button } from '@/components/ui/button';
 
 const NavBar = () => {
@@ -42,19 +42,29 @@ const NavBar = () => {
           </a>
         </div>
 
-        <div>
+        <div className="hidden md:flex items-center space-x-4">
+          <Button 
+            variant="outline" 
+            size="sm"
+            onClick={redirectToSignIn}
+            className="flex items-center gap-2"
+          >
+            <LogIn className="h-4 w-4" />
+            Sign In
+          </Button>
           <Button 
             onClick={redirectToDemoApp}
-            className="hidden md:inline-flex h-10 px-5 py-2 bg-primary text-white rounded-full text-sm font-medium transition-all hover:bg-primary/90 active:scale-95"
+            className="h-10 px-5 py-2 bg-primary text-white rounded-full text-sm font-medium transition-all hover:bg-primary/90 active:scale-95"
           >
             Try for Free
           </Button>
-          <button className="md:hidden text-foreground">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
         </div>
+        
+        <button className="md:hidden text-foreground">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
       </div>
     </nav>
   );
